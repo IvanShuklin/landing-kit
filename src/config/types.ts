@@ -81,6 +81,10 @@ export interface NicheConfig {
     subtitle: string
     cta: string
     stats: Stat[]
+    image: {
+      src: string
+      alt: string
+    }
   }
   services: {
     title: string

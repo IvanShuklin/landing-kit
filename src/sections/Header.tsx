@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { NicheConfig } from '../config'
 import { toTelHref } from '../lib/phone'
+import { CtaButton } from '../components/CtaButton'
 
 interface Props {
   brand: NicheConfig['brand']
@@ -32,9 +33,9 @@ export function Header({ brand, nav, phone, cta }: Props) {
             <a className="header__phone" href={toTelHref(phone)}>
               {phone}
             </a>
-            <a className="btn btn--primary btn--sm" href="#form" onClick={close}>
+            <CtaButton size="sm" onClick={close}>
               {cta}
-            </a>
+            </CtaButton>
           </div>
         </div>
         <button

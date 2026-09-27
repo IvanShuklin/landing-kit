@@ -58,7 +58,5 @@ export function useLeadForm(niche: string, fields: FormField[]) {
     }
   }
 
-  const reset = () => setStatus('idle')
-
-  return { values, errors, status, setValue, handleSubmit, reset }
+  return { values, errors, status, setValue, handleSubmit }
 }

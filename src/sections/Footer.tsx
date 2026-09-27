@@ -1,5 +1,6 @@
 import type { NicheConfig } from '../config'
 import { toTelHref } from '../lib/phone'
+import { CtaButton } from '../components/CtaButton'
 
 interface Props {
   brand: NicheConfig['brand']
@@ -16,9 +17,7 @@ export function Footer({ brand, contacts, cta }: Props) {
             <span className="logo__mark">{brand.logoMark}</span>
             <span className="logo__name">{brand.name}</span>
           </a>
-          <a href="#form" className="btn btn--primary">
-            {cta}
-          </a>
+          <CtaButton>{cta}</CtaButton>
         </div>
         <dl className="footer__contacts">
           <div>

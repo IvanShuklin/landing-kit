@@ -39,6 +39,10 @@ export const renovation: NicheConfig = {
       { value: '640+', label: 'квартир' },
       { value: '3 года', label: 'гарантии' },
     ],
+    image: {
+      src: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1200&q=75&auto=format&fit=crop',
+      alt: 'Светлая квартира после ремонта',
+    },
   },
   services: {
     title: 'Виды ремонта',

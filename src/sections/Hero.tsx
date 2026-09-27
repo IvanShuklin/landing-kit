@@ -1,13 +1,11 @@
 import type { NicheConfig } from '../config'
-import { LeadForm } from '../components/LeadForm'
+import { CtaButton } from '../components/CtaButton'
 
 interface Props {
-  niche: string
   hero: NicheConfig['hero']
-  form: NicheConfig['form']
 }
 
-export function Hero({ niche, hero, form }: Props) {
+export function Hero({ hero }: Props) {
   return (
     <section id="top" className="hero">
       <div className="container hero__inner">
@@ -15,9 +13,9 @@ export function Hero({ niche, hero, form }: Props) {
           <span className="hero__eyebrow">{hero.eyebrow}</span>
           <h1 className="hero__title">{hero.title}</h1>
           <p className="hero__subtitle">{hero.subtitle}</p>
-          <a href="#form" className="btn btn--primary btn--lg hero__cta">
+          <CtaButton size="lg" className="hero__cta">
             {hero.cta}
-          </a>
+          </CtaButton>
           <dl className="hero__stats">
             {hero.stats.map((stat) => (
               <div key={stat.label} className="hero__stat">
@@ -27,8 +25,8 @@ export function Hero({ niche, hero, form }: Props) {
             ))}
           </dl>
         </div>
-        <div id="form" className="hero__form">
-          <LeadForm niche={niche} form={form} />
+        <div className="hero__media">
+          <img className="hero__image" src={hero.image.src} alt={hero.image.alt} fetchPriority="high" />
         </div>
       </div>
     </section>

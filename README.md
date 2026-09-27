@@ -20,7 +20,7 @@ src/
       renovation.ts     ДомМастер (ремонт квартир) — пример второй ниши
     index.ts            реестр ниш, выбор через VITE_NICHE
   sections/             блоки страницы (Header, Hero, Services, …)
-  components/           LeadForm, FormFieldInput, Section
+  components/           LeadModal (модалка + контекст), CtaButton, LeadForm, FormFieldInput, Section
   hooks/useLeadForm.ts  состояние, валидация, отправка формы
   lib/leads.ts          формирование и отправка заявки (+ UTM)
   lib/phone.ts          маска телефона
@@ -33,7 +33,9 @@ src/
 2. Добавить её в реестр `src/config/index.ts`.
 3. В `.env` указать `VITE_NICHE=dentistry`.
 
-Поля формы описываются массивом `form.fields` (`text`, `tel`, `select`, `date`, `textarea`). Поля с `name: 'name'` и `name: 'phone'` попадают в `contact`, остальные — в `fields`.
+Картинка первого экрана задаётся в `hero.image`: ссылка из интернета или свой файл из `public/` (например, `/hero.jpg`).
+
+Форма открывается в модальном окне по любой кнопке `CtaButton`. Поля формы описываются массивом `form.fields` (`text`, `tel`, `select`, `date`, `textarea`). Поля с `name: 'name'` и `name: 'phone'` попадают в `contact`, остальные — в `fields`.
 
 ## Подключение amoCRM
 

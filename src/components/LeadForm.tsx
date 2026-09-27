@@ -5,19 +5,23 @@ import { FormFieldInput } from './FormFieldInput'
 interface Props {
   niche: string
   form: NicheConfig['form']
+  titleId: string
+  onClose: () => void
 }
 
-export function LeadForm({ niche, form }: Props) {
-  const { values, errors, status, setValue, handleSubmit, reset } = useLeadForm(niche, form.fields)
+export function LeadForm({ niche, form, titleId, onClose }: Props) {
+  const { values, errors, status, setValue, handleSubmit } = useLeadForm(niche, form.fields)
 
   if (status === 'success') {
     return (
       <div className="lead-form lead-form--success">
         <div className="lead-form__success-icon">✓</div>
-        <h3 className="lead-form__title">{form.successTitle}</h3>
+        <h2 className="lead-form__title" id={titleId}>
+          {form.successTitle}
+        </h2>
         <p className="lead-form__subtitle">{form.successText}</p>
-        <button type="button" className="btn btn--ghost" onClick={reset}>
-          Отправить ещё одну
+        <button type="button" className="btn btn--ghost" onClick={onClose}>
+          Закрыть
         </button>
       </div>
     )
@@ -25,7 +29,9 @@ export function LeadForm({ niche, form }: Props) {
 
   return (
     <form className="lead-form" onSubmit={handleSubmit} noValidate>
-      <h3 className="lead-form__title">{form.title}</h3>
+      <h2 className="lead-form__title" id={titleId}>
+        {form.title}
+      </h2>
       <p className="lead-form__subtitle">{form.subtitle}</p>
       <div className="lead-form__fields">
         {form.fields.map((field) => (

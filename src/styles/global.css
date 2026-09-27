@@ -271,12 +271,107 @@ a {
   font-size: 14px;
 }
 
-.lead-form {
-  padding: 32px;
+.hero__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--dark-soft);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: linear-gradient(200deg, transparent 55%, color-mix(in srgb, var(--dark) 55%, transparent));
+  pointer-events: none;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(10, 12, 16, 0.72);
+  backdrop-filter: blur(4px);
+  animation: modal-fade 0.2s ease-out;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
   border-radius: 20px;
   background: var(--bg);
-  color: var(--text);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  animation: modal-rise 0.25s ease-out;
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal__close:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal__dialog {
+    animation: none;
+  }
+}
+
+.lead-form {
+  padding: 32px;
+  color: var(--text);
+}
+
+.lead-form__title {
+  padding-right: 40px;
 }
 
 .lead-form__title {
@@ -320,6 +415,10 @@ a {
 .lead-form--success {
   text-align: center;
   padding: 48px 32px;
+}
+
+.lead-form--success .lead-form__title {
+  padding-right: 0;
 }
 
 .lead-form--success .btn {

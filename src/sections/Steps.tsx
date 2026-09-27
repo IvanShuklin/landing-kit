@@ -1,5 +1,6 @@
 import type { NicheConfig } from '../config'
 import { Section } from '../components/Section'
+import { CtaButton } from '../components/CtaButton'
 
 interface Props {
   steps: NicheConfig['steps']
@@ -19,9 +20,7 @@ export function Steps({ steps, cta }: Props) {
         ))}
       </ol>
       <div className="section__cta">
-        <a href="#form" className="btn btn--primary btn--lg">
-          {cta}
-        </a>
+        <CtaButton size="lg">{cta}</CtaButton>
       </div>
     </Section>
   )
